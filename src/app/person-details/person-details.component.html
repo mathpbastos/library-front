@@ -1,0 +1,20 @@
+<h2>Person Details</h2>
+
+<div *ngIf="person">
+
+    <div>
+        <label><b>First Name:</b></label> {{person?.firstName}}
+    </div>
+    <div>
+        <label><b>Last Name:</b></label> {{person?.lastName}}
+    </div>
+    <div>
+        <label><b>Email Address:</b></label> {{person?.emailAddress}}
+    </div>
+    <div>
+        <label><b>Phone Number:</b></label> {{person?.phoneNumber}}
+    </div>
+    <br><br>
+    <button (click)="goToList()" class="btn btn-primary">Go to Person List</button>
+
+</div>
