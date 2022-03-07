@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faBan, faCaretLeft, faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 import { Person } from '../person';
-import { PersonService } from '../person.service';
+import { PersonService } from '../services/person/person.service';
 
 @Component({
   selector: 'app-update-person',
@@ -10,8 +11,14 @@ import { PersonService } from '../person.service';
 })
 export class UpdatePersonComponent implements OnInit {
 
+  // ICONS
+  faSave = faFloppyDisk;
+  faCancel = faBan;
+  faBack = faCaretLeft;
+
   id!: number;
-  person!: Person;
+  person: Person = new Person();
+  submitted = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +55,7 @@ export class UpdatePersonComponent implements OnInit {
   }
 
   onSubmit(){
+    this.submitted = true;
     this.updatePerson();
   }
 

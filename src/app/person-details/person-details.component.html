@@ -1,20 +1,32 @@
-<h2>Person Details</h2>
+<div class="container text-center">
+    <h2 class="text-center">Person Details</h2>
+    <div *ngIf="person">
 
-<div *ngIf="person">
-
-    <div>
-        <label><b>First Name:</b></label> {{person?.firstName}}
+        <div>
+            <label><b>First Name:</b></label> {{ person.firstName }}
+        </div>
+        <div>
+            <label><b>Last Name:</b></label> {{ person.lastName }}
+        </div>
+        <div>
+            <label><b>Email Address:</b></label> {{ person.emailAddress }}
+        </div>
+        <div>
+            <label><b>Phone Number:</b></label> {{ person.phoneNumber }}
+        </div>
+        <div class="container text-center mt-3">
+            <button 
+                (click)="goToUpdate(person.id)"
+                class="btn btn-primary">
+                <fa-icon [icon]="faEdit"></fa-icon>
+                Edit
+            </button>
+            <button 
+                (click)="goToList()"
+                class="btn btn-warning ms-2">
+                <fa-icon [icon]="faBack"></fa-icon>
+                Back To List
+            </button>
+        </div>
     </div>
-    <div>
-        <label><b>Last Name:</b></label> {{person?.lastName}}
-    </div>
-    <div>
-        <label><b>Email Address:</b></label> {{person?.emailAddress}}
-    </div>
-    <div>
-        <label><b>Phone Number:</b></label> {{person?.phoneNumber}}
-    </div>
-    <br><br>
-    <button (click)="goToList()" class="btn btn-primary">Go to Person List</button>
-
 </div>

@@ -1,0 +1,37 @@
+GET http://localhost:8080/person/all HTTP/1.1
+
+###
+
+POST http://localhost:8080/person/new HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Maria",
+    "lastName": "Torres",
+    "emailAddress": "mastorres@mail.com",
+    "phoneNumber": "(23) 9 9761-1092"
+}
+
+###
+
+POST http://localhost:8080/person/new HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "João Paulo",
+    "lastName": "Santos",
+    "emailAddress": "jftorres@mail.com",
+    "phoneNumber": "(23) 9 9654-1134"
+}
+
+###
+
+DELETE http://localhost:8080/person/delete/2 HTTP/1.1
+
+###
+
+GET http://localhost:8080/person/1 HTTP/1.1
+
+###
+
+GET http://localhost:8080/person/2 HTTP/1.1

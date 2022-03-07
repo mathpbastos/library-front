@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{ title }}</h3>
+    <button 
+        type="button"
+        class="btn"
+        aria-label="Close"
+        (click)="dispose()">
+        <fa-icon [icon]="faClose"></fa-icon>
+    </button>
+</div>   
+
+<div class="modal-body">
+    <p><strong>{{ message }}</strong></p>
+</div>
+
+<div class="modal-footer">
+    <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="dispose()">
+        <fa-icon [icon]="faClose"></fa-icon>
+        {{ btnCancelText }}
+    </button>
+    <button
+        type="button"
+        ngbAutoFocus
+        class="btn btn-danger"
+        (click)="confirm()">
+        <fa-icon [icon]="faDelete"></fa-icon>
+        {{ btnConfirmText }}
+    </button>
+</div>

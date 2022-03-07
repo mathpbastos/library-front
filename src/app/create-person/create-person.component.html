@@ -1,8 +1,8 @@
-<h3>Create Person</h3>
-<div [hidden]="submitted" style="width: 400px;">
+<div class="container" [hidden]="submitted" style="width: 400px;">
+    <h3 class="text-center">Create Person</h3>
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="name"> First Name</label>
+            <label for="name">First Name</label>
             <input 
                 type="text"
                 class="form-control"
@@ -30,7 +30,8 @@
                 class="form-control"
                 id="emailAddress"
                 required
-                [(ngModel)]="person.emailAddress">
+                [(ngModel)]="person.emailAddress"
+                name="emailAddress">
         </div>
 
         <div class="form-group">
@@ -38,14 +39,31 @@
             <input
                 type="text"
                 class="form-control"
-                id="emailAddress"
-                required
-                [(ngModel)]="person.phoneNumber">
+                id="phoneNumber"
+                [(ngModel)]="person.phoneNumber"
+                name="phoneNumber">    
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <div class="container">
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-success">
+                    <fa-icon class="me-2" [icon]="faSave"></fa-icon>
+                    Submit
+                </button>
+                <button (click)="goToList()" class="btn btn-danger ms-2">
+                    <fa-icon class="me-2" [icon]="faCancel"></fa-icon>
+                    Cancelar
+                </button>
+            </div>
+        </div>
     </form>
 </div>
 
-<div [hidden]="!submitted">
+<div class="text-center" [hidden]="!submitted">
     <h4>Person submitted successfully</h4>
+    <button 
+        (click)="goToList()"
+        class="btn btn-warning ms-2">
+        <fa-icon [icon]="faBack"></fa-icon>
+        Back To List
+    </button>
 </div>

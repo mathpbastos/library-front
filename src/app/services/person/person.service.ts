@@ -13,8 +13,8 @@ export class PersonService {
     private http: HttpClient
   ) { }
 
-  getPerson(id: number){
-    return this.http.get(`${this.url}/${id}`);
+  getPerson(id: number): Observable<any>{
+    return this.http.get(`${this.url}/details/${id}`);
   }
 
   createPerson(person: Object): Observable<Object>{
@@ -22,7 +22,7 @@ export class PersonService {
   }
 
   updatePerson(id: number, value: any){
-    return this.http.put(`${this.url}/update`, value);
+    return this.http.put(`${this.url}/update/${id}`, value);
   }
 
   deletePerson(id: number): Observable<any>{
@@ -32,4 +32,5 @@ export class PersonService {
   getPersonList(): Observable<any>{
     return this.http.get(`${this.url}/all`);
   }
+  
 }

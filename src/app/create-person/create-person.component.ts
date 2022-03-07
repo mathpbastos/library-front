@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Person } from '../person';
-import { PersonService } from '../person.service';
+import { PersonService } from '../services/person/person.service';
+import { faBan, faCaretLeft, faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-create-person',
@@ -9,6 +10,10 @@ import { PersonService } from '../person.service';
   styleUrls: ['./create-person.component.css']
 })
 export class CreatePersonComponent implements OnInit {
+  // ICONS
+  faSave = faFloppyDisk;
+  faCancel = faBan;
+  faBack = faCaretLeft;
 
   person: Person = new Person();
   submitted = false;

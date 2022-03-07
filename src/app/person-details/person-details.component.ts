@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faCaretLeft, faPen } from '@fortawesome/free-solid-svg-icons';
 import { Person } from '../person';
-import { PersonService } from '../person.service';
+import { PersonService } from '../services/person/person.service';
+
 
 @Component({
   selector: 'app-person-details',
@@ -9,6 +11,10 @@ import { PersonService } from '../person.service';
   styleUrls: ['./person-details.component.css']
 })
 export class PersonDetailsComponent implements OnInit {
+
+  // ICONS
+  faEdit = faPen;
+  faBack = faCaretLeft;
 
   id!: number;
   person!: Person;
@@ -23,7 +29,7 @@ export class PersonDetailsComponent implements OnInit {
     this.person = new Person();
     this.id = this.route.snapshot.params['id'];
     this.personService.getPerson(this.id)
-      .subscribe(data => {
+      .subscribe((data: any) => {
         console.log(data);
         this.person = data;
       }, error => console.log(error)
@@ -34,4 +40,7 @@ export class PersonDetailsComponent implements OnInit {
     this.router.navigate(['person/all']);
   }
 
+  goToUpdate(id: number){
+    this.router.navigate([`person/update`, id]);
+  }
 }
